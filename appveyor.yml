@@ -9,12 +9,12 @@ branches:
 build: off
 
 install:
-  
-  - java -jar ./artifacts/app-ibank.jar  &
-  - chmod +x gradlew
+
+  - java -jar ./artifacts/app-ibank.jar -P:profile=test     -port=9999 &
+
 
 
 build_script:
-  - java -jar app-ibank.jar -P:profile=test
+  - chmod +x gradlew
   - ./gradlew test --info -Dselenide.headless=true
 
